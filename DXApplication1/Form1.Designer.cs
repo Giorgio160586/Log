@@ -47,17 +47,26 @@
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
+            this.splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
+            this.splitContainerControl1.Panel2.SuspendLayout();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
             // 
-            this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(2436739, 2506403, 2436739, 2506403);
+            this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(5482663, 5639407, 5482663, 5639407);
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
@@ -72,10 +81,10 @@
             this.barEditItem3,
             this.barEditItem4});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(252760, 269046, 252760, 269046);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(568710, 605354, 568710, 605354);
             this.ribbonControl.MaxItemId = 9;
             this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.OptionsMenuMinWidth = 27067688;
+            this.ribbonControl.OptionsMenuMinWidth = 60902296;
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -84,7 +93,7 @@
             this.repositoryItemTextEdit3,
             this.repositoryItemTextEdit4});
             this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1673, 327);
+            this.ribbonControl.Size = new System.Drawing.Size(1673, 357);
             // 
             // skinRibbonGalleryBarItem
             // 
@@ -190,12 +199,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Filter";
             // 
             // memoEdit1
             // 
             this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoEdit1.Location = new System.Drawing.Point(0, 327);
-            this.memoEdit1.Margin = new System.Windows.Forms.Padding(119576);
+            this.memoEdit1.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit1.Margin = new System.Windows.Forms.Padding(269046, 269046, 269046, 269046);
             this.memoEdit1.MenuManager = this.ribbonControl;
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
@@ -205,16 +215,57 @@
             this.memoEdit1.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.memoEdit1.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.memoEdit1.Properties.WordWrap = false;
-            this.memoEdit1.Size = new System.Drawing.Size(1673, 754);
+            this.memoEdit1.Size = new System.Drawing.Size(0, 0);
             this.memoEdit1.TabIndex = 2;
-            this.memoEdit1.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.memoEdit1_CustomHighlightText);
+            this.memoEdit1.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.memoEdit_CustomHighlightText);
+            this.memoEdit1.DoubleClick += new System.EventHandler(this.memoEdit1_DoubleClick);
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 357);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.memoEdit2);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.memoEdit1);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(1673, 724);
+            this.splitContainerControl1.SplitterPosition = 715;
+            this.splitContainerControl1.TabIndex = 4;
+            // 
+            // memoEdit2
+            // 
+            this.memoEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit2.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit2.Margin = new System.Windows.Forms.Padding(269046, 269046, 269046, 269046);
+            this.memoEdit2.MenuManager = this.ribbonControl;
+            this.memoEdit2.Name = "memoEdit2";
+            this.memoEdit2.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
+            this.memoEdit2.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit2.Properties.Appearance.Options.UseTextOptions = true;
+            this.memoEdit2.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.memoEdit2.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.memoEdit2.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.memoEdit2.Properties.WordWrap = false;
+            this.memoEdit2.Size = new System.Drawing.Size(1673, 702);
+            this.memoEdit2.TabIndex = 3;
+            this.memoEdit2.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.memoEdit_CustomHighlightText);
+            this.memoEdit2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.memoEdit2_KeyDown);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1673, 1081);
-            this.Controls.Add(this.memoEdit1);
+            this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonControl);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Form1.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
@@ -228,6 +279,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
+            this.splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
+            this.splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,5 +310,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
         private DevExpress.XtraBars.BarEditItem barEditItem4;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.MemoEdit memoEdit2;
     }
 }
