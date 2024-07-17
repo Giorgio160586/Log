@@ -1,5 +1,7 @@
 ﻿using DevExpress.Data.ExpressionEditor;
+using DevExpress.Drawing.Internal;
 using DevExpress.LookAndFeel;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
@@ -12,22 +14,32 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DXApplication1
 {
     public partial class Form1 : RibbonForm
     {
-        public string text { get; set; } 
+        public string text { get; set; }
+
+        private UndoRedoManager undoRedoManager;
+
         public Form1()
         {
             InitializeComponent();
+
+            undoRedoManager = new UndoRedoManager();
 
             splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 12 * 7;
 
             repositoryItemTextEdit1.Appearance.ForeColor = DXSkinColors.FillColors.Primary;
             repositoryItemTextEdit3.Appearance.ForeColor = DXSkinColors.FillColors.Success;
             repositoryItemTextEdit4.Appearance.ForeColor = DXSkinColors.FillColors.Danger;
-       
+
+            barStaticItem2.Appearance.ForeColor = Color.FromArgb(255, 0, 209, 246);
+            barStaticItem3.Appearance.ForeColor = DXSkinColors.FillColors.Success;
+            barStaticItem4.Appearance.ForeColor = DXSkinColors.FillColors.Danger;
+
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Log++"))
             {
                 if (key != null)
@@ -39,7 +51,6 @@ namespace DXApplication1
                     text = memoEdit2.Text;
                 }
             }
-            find();
         }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -56,7 +67,7 @@ namespace DXApplication1
                 key.SetValue("FindAll3", Convert.ToString(barEditItem4.EditValue), RegistryValueKind.String);
             }
 
-            var l = text.Split('\n').ToArray();
+            var l = Convert.ToString(memoEdit2.EditValue).Split('\n').ToArray();
             var filters = new List<string>();
 
             if (!string.IsNullOrEmpty(Convert.ToString(barEditItem1.EditValue)))
@@ -68,6 +79,22 @@ namespace DXApplication1
 
             if (filters.Count > 0)
                 l = l.Where(f => filters.Any(filter => f.Contains(filter))).ToArray();
+
+            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem1.EditValue)))
+                barStaticItem2.Caption = $"{Convert.ToString(barEditItem1.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem1.EditValue))).Count()} hits)";
+            else
+                barStaticItem2.Caption = string.Empty;
+
+            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem3.EditValue)))
+                barStaticItem3.Caption = $"{Convert.ToString(barEditItem3.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem3.EditValue))).Count()} hits)";
+            else
+                barStaticItem3.Caption = string.Empty;
+
+            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem4.EditValue)))
+                barStaticItem4.Caption = $"{Convert.ToString(barEditItem4.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem4.EditValue))).Count()} hits)";
+            else
+                barStaticItem4.Caption = string.Empty;
+
 
             memoEdit1.Text = string.Join("\n", l);
         }
@@ -82,19 +109,35 @@ namespace DXApplication1
         {
             memoEdit2.Text = text;
             memoEdit1.Clear();
-             
+            barStaticItem2.Caption = string.Empty;
+            barStaticItem3.Caption = string.Empty;
+            barStaticItem4.Caption = string.Empty;
         }
 
         private void memoEdit2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
-                text = Clipboard.GetText();
+                byte[] bytes = Encoding.UTF8.GetBytes(Clipboard.GetText());
+                var clipBoard = Encoding.UTF8.GetString(bytes);
 
+                text = clipBoard;
+
+                memoEdit2.EditValue = text;
                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
                 {
                     key.SetValue("Text", text, RegistryValueKind.String);
                 }
+            }
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                undoRedoManager.Undo(memoEdit2);
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.Y)
+            {
+                undoRedoManager.Redo(memoEdit2);
+                e.Handled = true;
             }
         }
 
@@ -129,6 +172,28 @@ namespace DXApplication1
                 }
                 memoEdit.Select(lineStart, lineEnd - lineStart);
             }
+        }
+
+        private void ClearBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            memoEdit2.Clear();
+            memoEdit1.Clear();
+            find();
+            text = string.Empty;
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
+            {
+                key.SetValue("Text", text, RegistryValueKind.String);
+            }
+        }
+
+
+        private void memoEdit2_TextChanged(object sender, EventArgs e)
+        {
+            if (!undoRedoManager.IsUndoOrRedo)
+            {
+                undoRedoManager.AddState(memoEdit2.Text);
+            }
+
         }
     }
 }
