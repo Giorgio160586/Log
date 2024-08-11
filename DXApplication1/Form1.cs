@@ -1,28 +1,30 @@
 ﻿using DevExpress.Data.ExpressionEditor;
-using DevExpress.Drawing.Internal;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DXApplication1
 {
     public partial class Form1 : RibbonForm
     {
-        public string text { get; set; }
 
         private UndoRedoManager undoRedoManager;
+
+        private Color color1 = Color.FromArgb(255, 0, 209, 246);
+        private Color color2 = Color.FromArgb(255, 83, 186, 122);
+        private Color color3 = Color.FromArgb(255, 252, 109, 119);
+        private string find1 { get; set; }
+        private string find2 { get; set; }
+        private string find3 { get; set; }
 
         public Form1()
         {
@@ -32,123 +34,141 @@ namespace DXApplication1
 
             splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 12 * 7;
 
-            repositoryItemTextEdit1.Appearance.ForeColor = DXSkinColors.FillColors.Primary;
-            repositoryItemTextEdit3.Appearance.ForeColor = DXSkinColors.FillColors.Success;
-            repositoryItemTextEdit4.Appearance.ForeColor = DXSkinColors.FillColors.Danger;
+            Find1RepositoryItemTextEdit.Appearance.ForeColor = color1;
+            Find2RepositoryItemTextEdit.Appearance.ForeColor = color2;
+            Find3RepositoryItemTextEdit.Appearance.ForeColor = color3;
 
-            barStaticItem2.Appearance.ForeColor = Color.FromArgb(255, 0, 209, 246);
-            barStaticItem3.Appearance.ForeColor = DXSkinColors.FillColors.Success;
-            barStaticItem4.Appearance.ForeColor = DXSkinColors.FillColors.Danger;
+            barStaticItem2.Appearance.ForeColor = color1;
+            barStaticItem3.Appearance.ForeColor = color2;
+            barStaticItem4.Appearance.ForeColor = color3;
 
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Log++"))
             {
                 if (key != null)
                 {
-                    barEditItem1.EditValue = key.GetValue("FindAll1");
-                    barEditItem3.EditValue = key.GetValue("FindAll2");
-                    barEditItem4.EditValue = key.GetValue("FindAll3");
-                    memoEdit2.EditValue = key.GetValue("Text");
-                    text = memoEdit2.Text;
+                    Find1BarEditItem.EditValue = key.GetValue("FindAll1");
+                    Find2BarEditItem.EditValue = key.GetValue("FindAll2");
+                    Find3BarEditItem.EditValue = key.GetValue("FindAll3");
                 }
             }
         }
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void FindBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            find();
-        }
+            FromMemoEdit.SuspendLayout();
+            ToMemoEdit.SuspendLayout();
 
-        private void find()
-        {
-            memoEdit2.Select(0,0);
+            find1 = Convert.ToString(Find1BarEditItem.EditValue);
+            find2 = Convert.ToString(Find2BarEditItem.EditValue);
+            find3 = Convert.ToString(Find3BarEditItem.EditValue);
+
             using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
             {
-                key.SetValue("FindAll1", Convert.ToString(barEditItem1.EditValue), RegistryValueKind.String);
-                key.SetValue("FindAll2", Convert.ToString(barEditItem3.EditValue), RegistryValueKind.String);
-                key.SetValue("FindAll3", Convert.ToString(barEditItem4.EditValue), RegistryValueKind.String);
+                key.SetValue("FindAll1", find1, RegistryValueKind.String);
+                key.SetValue("FindAll2", find2, RegistryValueKind.String);
+                key.SetValue("FindAll3", find3, RegistryValueKind.String);
             }
-
-            var l = Convert.ToString(memoEdit2.EditValue).Split('\n').ToArray();
+            var l = Convert.ToString(FromMemoEdit.EditValue).Split(Environment.NewLine.ToCharArray()).Where(f => !string.IsNullOrEmpty(f)).ToArray();
             var filters = new List<string>();
 
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem1.EditValue)))
-                filters.Add(Convert.ToString(barEditItem1.EditValue));
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem3.EditValue)))
-                filters.Add(Convert.ToString(barEditItem3.EditValue));
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem4.EditValue)))
-                filters.Add(Convert.ToString(barEditItem4.EditValue));
+            ToMemoEdit.Text = string.Empty;
+            FromMemoEdit.Select(0, 0);
+
+            if (!string.IsNullOrEmpty(find1))
+                filters.Add(find1);
+            if (!string.IsNullOrEmpty(find2))
+                filters.Add(find2);
+            if (!string.IsNullOrEmpty(find3))
+                filters.Add(find3);
 
             if (filters.Count > 0)
-                l = l.Where(f => filters.Any(filter => f.Contains(filter))).ToArray();
+                l = l.Where(f => filters.Any(filter => f.Contains(filter))).Distinct().ToArray();
 
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem1.EditValue)))
-                barStaticItem2.Caption = $"{Convert.ToString(barEditItem1.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem1.EditValue))).Count()} hits)";
+            if (!string.IsNullOrEmpty(find1))
+                barStaticItem2.Caption = $"{find1} ({l.Where(f => f.Contains(find1)).Count()} hits)";
             else
                 barStaticItem2.Caption = string.Empty;
 
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem3.EditValue)))
-                barStaticItem3.Caption = $"{Convert.ToString(barEditItem3.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem3.EditValue))).Count()} hits)";
+            if (!string.IsNullOrEmpty(find2))
+                barStaticItem3.Caption = $"{find2} ({l.Where(f => f.Contains(find2)).Count()} hits)";
             else
                 barStaticItem3.Caption = string.Empty;
 
-            if (!string.IsNullOrEmpty(Convert.ToString(barEditItem4.EditValue)))
-                barStaticItem4.Caption = $"{Convert.ToString(barEditItem4.EditValue)} ({l.Where(f => f.Contains(Convert.ToString(barEditItem4.EditValue))).Count()} hits)";
+            if (!string.IsNullOrEmpty(find3))
+                barStaticItem4.Caption = $"{find3} ({l.Where(f => f.Contains(find3)).Count()} hits)";
             else
                 barStaticItem4.Caption = string.Empty;
 
+            if (Contains1BarCheckItem.Checked)
+            {
+                StringComparison comparisonType1 = StringComparison.OrdinalIgnoreCase;
+                l = l.Where(f => f.IndexOf(find1, comparisonType1) >= 0).ToArray();
+            }
 
-            memoEdit1.Text = string.Join("\n", l);
+            if (Contains2BarCheckItem.Checked)
+            {
+                StringComparison comparisonType2 = StringComparison.OrdinalIgnoreCase;
+                l = l.Where(f => f.IndexOf(find2, comparisonType2) >= 0).ToArray();
+            }
+
+            if (Contains3BarCheckItem.Checked)
+            {
+                StringComparison comparisonType3 = StringComparison.OrdinalIgnoreCase;
+                l = l.Where(f => f.IndexOf(find3, comparisonType3) >= 0).ToArray();
+            }
+
+            FromMemoEdit.ResumeLayout();
+            ToMemoEdit.ResumeLayout();
+            ToMemoEdit.Text = string.Join(Environment.NewLine, l);
+            FromMemoEdit.Text = FromMemoEdit.Text;
         }
-        private void memoEdit_CustomHighlightText(object sender, DevExpress.XtraEditors.TextEditCustomHighlightTextEventArgs e)
+
+        private void ToMemoEdit_CustomHighlightText(object sender, DevExpress.XtraEditors.TextEditCustomHighlightTextEventArgs e)
         {
-            e.HighlightWords(Convert.ToString(barEditItem1.EditValue), DXSkinColors.FillColors.Primary);
-            e.HighlightWords(Convert.ToString(barEditItem3.EditValue), DXSkinColors.FillColors.Success);
-            e.HighlightWords(Convert.ToString(barEditItem4.EditValue), DXSkinColors.FillColors.Danger);
+            if (find1 != null)
+                e.HighlightWords(find1, color1);
+            if (find2 != null)
+                e.HighlightWords(find2, color2);
+            if (find3 != null)
+                e.HighlightWords(find3, color3);
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            memoEdit2.Text = text;
-            memoEdit1.Clear();
-            barStaticItem2.Caption = string.Empty;
-            barStaticItem3.Caption = string.Empty;
-            barStaticItem4.Caption = string.Empty;
-        }
-
-        private void memoEdit2_KeyDown(object sender, KeyEventArgs e)
+        private void FromMemoEdit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(Clipboard.GetText());
                 var clipBoard = Encoding.UTF8.GetString(bytes);
 
-                text = clipBoard;
+                FromMemoEdit.EditValue = string.Empty;
 
-                memoEdit2.EditValue = text;
-                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
-                {
-                    key.SetValue("Text", text, RegistryValueKind.String);
-                }
+                FromMemoEdit.EditValue = clipBoard;
+                //using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
+                //{
+                //    key.SetValue("Text", text, RegistryValueKind.String);
+                //}
+
+                e.Handled = true;
             }
             if (e.Control && e.KeyCode == Keys.Z)
             {
-                undoRedoManager.Undo(memoEdit2);
+                undoRedoManager.Undo(FromMemoEdit);
                 e.Handled = true;
             }
             else if (e.Control && e.KeyCode == Keys.Y)
             {
-                undoRedoManager.Redo(memoEdit2);
+                undoRedoManager.Redo(FromMemoEdit);
                 e.Handled = true;
             }
         }
 
-        private void memoEdit1_DoubleClick(object sender, EventArgs e)
+        private void ToMemoEdit_DoubleClick(object sender, EventArgs e)
         {
             MemoEdit memoEdit = sender as MemoEdit;
             int charIndex = memoEdit.SelectionStart;
             int lineIndex = memoEdit.GetLineFromCharIndex(charIndex);
             string searchText = memoEdit.Lines[lineIndex];
 
-            select(memoEdit2, searchText);
+            select(FromMemoEdit, searchText);
         }
 
         private void select(MemoEdit sender, string searchText)
@@ -174,26 +194,28 @@ namespace DXApplication1
             }
         }
 
-        private void ClearBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            memoEdit2.Clear();
-            memoEdit1.Clear();
-            find();
-            text = string.Empty;
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
-            {
-                key.SetValue("Text", text, RegistryValueKind.String);
-            }
-        }
-
-
-        private void memoEdit2_TextChanged(object sender, EventArgs e)
+        private void FromMemoEdit_TextChanged(object sender, EventArgs e)
         {
             if (!undoRedoManager.IsUndoOrRedo)
             {
-                undoRedoManager.AddState(memoEdit2.Text);
+                undoRedoManager.AddState(Convert.ToString(FromMemoEdit.EditValue));
             }
+        }
+        private void ClearBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ToMemoEdit.Clear();
+        }
 
+        private void UpBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ToMemoEdit.SelectionStart = 0;
+            ToMemoEdit.ScrollToCaret();
+        }
+
+        private void DownBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ToMemoEdit.SelectionStart = ToMemoEdit.Text.Length;
+            ToMemoEdit.ScrollToCaret();
         }
     }
 }
