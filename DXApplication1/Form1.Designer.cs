@@ -30,36 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.FindBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.Find1BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.Find1RepositoryItemTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.Find2BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.Find2RepositoryItemTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.Find3BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.Find3RepositoryItemTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.Clea2rBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.UpBarButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.Down2BarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.Contains1BarCheckItem = new DevExpress.XtraBars.BarCheckItem();
             this.Contains3BarCheckItem = new DevExpress.XtraBars.BarCheckItem();
             this.Contains2BarCheckItem = new DevExpress.XtraBars.BarCheckItem();
+            this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
+            this.Find1BarEditItem = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
+            this.Find2BarEditItem = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.barButtonGroup4 = new DevExpress.XtraBars.BarButtonGroup();
+            this.Find3BarEditItem = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.FromMemoEdit = new DevExpress.XtraEditors.MemoEdit();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.ToMemoEdit = new DevExpress.XtraEditors.MemoEdit();
-            this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.standaloneBarDockControl3 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
@@ -68,19 +70,31 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.UpBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.DownBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.ClearBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.Clear2BarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.UndoBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.RedoBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.Clear1BarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.FromMemoEdit = new DevExpress.XtraEditors.MemoEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ToMemoEdit = new DevExpress.XtraEditors.MemoEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find1RepositoryItemTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find2RepositoryItemTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find3RepositoryItemTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
@@ -90,11 +104,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
             this.splitContainerControl1.Panel2.SuspendLayout();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FromMemoEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ToMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -106,6 +125,9 @@
             this.ribbonControl.AllowMdiChildButtons = false;
             this.ribbonControl.AllowMinimizeRibbon = false;
             this.ribbonControl.AllowTrimPageText = false;
+            this.ribbonControl.AutoUpdateMergedRibbons = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.DrawGroupsBorderMode = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(-2147483648);
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -115,33 +137,38 @@
             this.skinPaletteRibbonGalleryBarItem,
             this.FindBarButtonItem,
             this.barStaticItem1,
-            this.Find1BarEditItem,
             this.barEditItem2,
-            this.Find2BarEditItem,
-            this.Find3BarEditItem,
             this.Clea2rBarButtonItem,
             this.UpBarButtonItem2,
             this.Down2BarButtonItem,
             this.Contains1BarCheckItem,
             this.Contains3BarCheckItem,
-            this.Contains2BarCheckItem});
+            this.Contains2BarCheckItem,
+            this.barButtonGroup1,
+            this.barButtonGroup3,
+            this.barButtonGroup4,
+            this.Find1BarEditItem,
+            this.Find2BarEditItem,
+            this.Find3BarEditItem});
             this.ribbonControl.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonControl.MaxItemId = 53;
+            this.ribbonControl.MaxItemId = 66;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.OptionsAnimation.PageCategoryShowAnimation = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.OptionsExpandCollapseMenu.ShowRibbonGroup = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.OptionsMenuMinWidth = -2147483648;
+            this.ribbonControl.OptionsPageCategories.ShowCaptions = false;
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.Find1RepositoryItemTextEdit,
             this.repositoryItemTextEdit2,
-            this.Find2RepositoryItemTextEdit,
-            this.Find3RepositoryItemTextEdit,
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2,
-            this.repositoryItemCheckEdit3});
+            this.repositoryItemCheckEdit3,
+            this.repositoryItemButtonEdit1,
+            this.repositoryItemButtonEdit2,
+            this.repositoryItemButtonEdit3});
             this.ribbonControl.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
             this.ribbonControl.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.None;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -149,10 +176,10 @@
             this.ribbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowMoreCommandsButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
+            this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl.ShowQatLocationSelector = false;
             this.ribbonControl.ShowToolbarCustomizeItem = false;
-            this.ribbonControl.Size = new System.Drawing.Size(2016, 357);
+            this.ribbonControl.Size = new System.Drawing.Size(1809, 308);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // skinRibbonGalleryBarItem
@@ -187,19 +214,6 @@
             this.barStaticItem1.Id = 3;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // Find1BarEditItem
-            // 
-            this.Find1BarEditItem.Caption = "Find 1:";
-            this.Find1BarEditItem.Edit = this.Find1RepositoryItemTextEdit;
-            this.Find1BarEditItem.EditWidth = 400;
-            this.Find1BarEditItem.Id = 4;
-            this.Find1BarEditItem.Name = "Find1BarEditItem";
-            // 
-            // Find1RepositoryItemTextEdit
-            // 
-            this.Find1RepositoryItemTextEdit.AutoHeight = false;
-            this.Find1RepositoryItemTextEdit.Name = "Find1RepositoryItemTextEdit";
-            // 
             // barEditItem2
             // 
             this.barEditItem2.Caption = "barEditItem2";
@@ -212,32 +226,6 @@
             this.repositoryItemTextEdit2.AutoHeight = false;
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
-            // Find2BarEditItem
-            // 
-            this.Find2BarEditItem.Caption = "Find 2:";
-            this.Find2BarEditItem.Edit = this.Find2RepositoryItemTextEdit;
-            this.Find2BarEditItem.EditWidth = 400;
-            this.Find2BarEditItem.Id = 7;
-            this.Find2BarEditItem.Name = "Find2BarEditItem";
-            // 
-            // Find2RepositoryItemTextEdit
-            // 
-            this.Find2RepositoryItemTextEdit.AutoHeight = false;
-            this.Find2RepositoryItemTextEdit.Name = "Find2RepositoryItemTextEdit";
-            // 
-            // Find3BarEditItem
-            // 
-            this.Find3BarEditItem.Caption = "Find 3:";
-            this.Find3BarEditItem.Edit = this.Find3RepositoryItemTextEdit;
-            this.Find3BarEditItem.EditWidth = 400;
-            this.Find3BarEditItem.Id = 8;
-            this.Find3BarEditItem.Name = "Find3BarEditItem";
-            // 
-            // Find3RepositoryItemTextEdit
-            // 
-            this.Find3RepositoryItemTextEdit.AutoHeight = false;
-            this.Find3RepositoryItemTextEdit.Name = "Find3RepositoryItemTextEdit";
-            // 
             // Clea2rBarButtonItem
             // 
             this.Clea2rBarButtonItem.Caption = "barButtonItem3";
@@ -245,7 +233,7 @@
             this.Clea2rBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Clea2rBarButtonItem.ImageOptions.SvgImage")));
             this.Clea2rBarButtonItem.Name = "Clea2rBarButtonItem";
             this.Clea2rBarButtonItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            this.Clea2rBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearBarButtonItem_ItemClick);
+            this.Clea2rBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Clear2BarButtonItem_ItemClick);
             // 
             // UpBarButtonItem2
             // 
@@ -290,6 +278,84 @@
             this.Contains2BarCheckItem.Name = "Contains2BarCheckItem";
             this.Contains2BarCheckItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
             // 
+            // barButtonGroup1
+            // 
+            this.barButtonGroup1.ButtonGroupsLayout = DevExpress.XtraBars.ButtonGroupsLayout.ThreeRows;
+            this.barButtonGroup1.Caption = "barButtonGroup1";
+            this.barButtonGroup1.Id = 55;
+            this.barButtonGroup1.ItemLinks.Add(this.Find1BarEditItem);
+            this.barButtonGroup1.ItemLinks.Add(this.Contains1BarCheckItem);
+            this.barButtonGroup1.MultiColumn = DevExpress.Utils.DefaultBoolean.False;
+            this.barButtonGroup1.Name = "barButtonGroup1";
+            // 
+            // Find1BarEditItem
+            // 
+            this.Find1BarEditItem.Caption = "barEditItem1";
+            this.Find1BarEditItem.Edit = this.repositoryItemButtonEdit1;
+            this.Find1BarEditItem.EditWidth = 400;
+            this.Find1BarEditItem.Id = 63;
+            this.Find1BarEditItem.Name = "Find1BarEditItem";
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            // 
+            // barButtonGroup3
+            // 
+            this.barButtonGroup3.ButtonGroupsLayout = DevExpress.XtraBars.ButtonGroupsLayout.ThreeRows;
+            this.barButtonGroup3.Caption = "barButtonGroup3";
+            this.barButtonGroup3.Id = 60;
+            this.barButtonGroup3.ItemLinks.Add(this.Find2BarEditItem);
+            this.barButtonGroup3.ItemLinks.Add(this.Contains3BarCheckItem);
+            this.barButtonGroup3.MultiColumn = DevExpress.Utils.DefaultBoolean.False;
+            this.barButtonGroup3.Name = "barButtonGroup3";
+            // 
+            // Find2BarEditItem
+            // 
+            this.Find2BarEditItem.Caption = "barEditItem1";
+            this.Find2BarEditItem.Edit = this.repositoryItemButtonEdit2;
+            this.Find2BarEditItem.EditWidth = 400;
+            this.Find2BarEditItem.Id = 64;
+            this.Find2BarEditItem.Name = "Find2BarEditItem";
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            this.repositoryItemButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            // 
+            // barButtonGroup4
+            // 
+            this.barButtonGroup4.ButtonGroupsLayout = DevExpress.XtraBars.ButtonGroupsLayout.ThreeRows;
+            this.barButtonGroup4.Caption = "barButtonGroup4";
+            this.barButtonGroup4.Id = 61;
+            this.barButtonGroup4.ItemLinks.Add(this.Find3BarEditItem);
+            this.barButtonGroup4.ItemLinks.Add(this.Contains2BarCheckItem);
+            this.barButtonGroup4.MultiColumn = DevExpress.Utils.DefaultBoolean.False;
+            this.barButtonGroup4.Name = "barButtonGroup4";
+            // 
+            // Find3BarEditItem
+            // 
+            this.Find3BarEditItem.Caption = "barEditItem1";
+            this.Find3BarEditItem.Edit = this.repositoryItemButtonEdit3;
+            this.Find3BarEditItem.EditWidth = 400;
+            this.Find3BarEditItem.Id = 65;
+            this.Find3BarEditItem.Name = "Find3BarEditItem";
+            // 
+            // repositoryItemButtonEdit3
+            // 
+            this.repositoryItemButtonEdit3.AutoHeight = false;
+            this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
+            this.repositoryItemButtonEdit3.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -300,14 +366,12 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
-            this.ribbonPageGroup1.ItemLinks.Add(this.Find1BarEditItem);
-            this.ribbonPageGroup1.ItemLinks.Add(this.Find2BarEditItem);
-            this.ribbonPageGroup1.ItemLinks.Add(this.Find3BarEditItem);
-            this.ribbonPageGroup1.ItemLinks.Add(this.Contains1BarCheckItem);
-            this.ribbonPageGroup1.ItemLinks.Add(this.Contains2BarCheckItem);
-            this.ribbonPageGroup1.ItemLinks.Add(this.Contains3BarCheckItem);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonGroup1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonGroup3);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonGroup4);
             this.ribbonPageGroup1.ItemLinks.Add(this.FindBarButtonItem);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroup1.Text = "Filter";
             // 
             // repositoryItemCheckEdit1
@@ -331,102 +395,60 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 357);
-            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(605354, 605354, 605354, 605354);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 308);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainerControl1.Name = "splitContainerControl1";
             // 
             // splitContainerControl1.Panel1
             // 
-            this.splitContainerControl1.Panel1.Controls.Add(this.FromMemoEdit);
+            this.splitContainerControl1.Panel1.Controls.Add(this.layoutControl2);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             // 
             // splitContainerControl1.Panel2
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.layoutControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(2016, 936);
-            this.splitContainerControl1.SplitterPosition = 1649;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1809, 894);
+            this.splitContainerControl1.SplitterPosition = 147;
             this.splitContainerControl1.TabIndex = 4;
             // 
-            // FromMemoEdit
+            // layoutControl2
             // 
-            this.FromMemoEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FromMemoEdit.Location = new System.Drawing.Point(0, 0);
-            this.FromMemoEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.FromMemoEdit.MenuManager = this.ribbonControl;
-            this.FromMemoEdit.Name = "FromMemoEdit";
-            this.FromMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
-            this.FromMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
-            this.FromMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.FromMemoEdit.Properties.Appearance.Options.UseTextOptions = true;
-            this.FromMemoEdit.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.FromMemoEdit.Properties.AppearanceFocused.Options.UseTextOptions = true;
-            this.FromMemoEdit.Properties.AppearanceFocused.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.FromMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.FromMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.FromMemoEdit.Properties.WordWrap = false;
-            this.FromMemoEdit.Size = new System.Drawing.Size(2016, 914);
-            this.FromMemoEdit.TabIndex = 3;
-            this.FromMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
-            this.FromMemoEdit.TextChanged += new System.EventHandler(this.FromMemoEdit_TextChanged);
-            this.FromMemoEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FromMemoEdit_KeyDown);
+            this.layoutControl2.Controls.Add(this.standaloneBarDockControl3);
+            this.layoutControl2.Controls.Add(this.FromMemoEdit);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.layoutControl2.Size = new System.Drawing.Size(1809, 147);
+            this.layoutControl2.TabIndex = 5;
+            this.layoutControl2.Text = "layoutControl2";
             // 
-            // layoutControl1
+            // standaloneBarDockControl3
             // 
-            this.layoutControl1.Controls.Add(this.ToMemoEdit);
-            this.layoutControl1.Controls.Add(this.standaloneBarDockControl2);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(410, 410, 410, 410);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(0, 0);
-            this.layoutControl1.TabIndex = 4;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // ToMemoEdit
-            // 
-            this.ToMemoEdit.Location = new System.Drawing.Point(26, 26);
-            this.ToMemoEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.ToMemoEdit.MenuManager = this.ribbonControl;
-            this.ToMemoEdit.Name = "ToMemoEdit";
-            this.ToMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
-            this.ToMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
-            this.ToMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.ToMemoEdit.Properties.Appearance.Options.UseTextOptions = true;
-            this.ToMemoEdit.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.ToMemoEdit.Properties.ReadOnly = true;
-            this.ToMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ToMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.ToMemoEdit.Properties.WordWrap = false;
-            this.ToMemoEdit.Size = new System.Drawing.Size(22, 44);
-            this.ToMemoEdit.StyleController = this.layoutControl1;
-            this.ToMemoEdit.TabIndex = 6;
-            this.ToMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
-            this.ToMemoEdit.DoubleClick += new System.EventHandler(this.ToMemoEdit_DoubleClick);
-            // 
-            // standaloneBarDockControl2
-            // 
-            this.standaloneBarDockControl2.CausesValidation = false;
-            this.standaloneBarDockControl2.IsVertical = true;
-            this.standaloneBarDockControl2.Location = new System.Drawing.Point(56, 26);
-            this.standaloneBarDockControl2.Manager = this.barManager1;
-            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(410, 410, 410, 410);
-            this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(1, 1);
-            this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            this.standaloneBarDockControl3.CausesValidation = false;
+            this.standaloneBarDockControl3.IsVertical = true;
+            this.standaloneBarDockControl3.Location = new System.Drawing.Point(1675, 26);
+            this.standaloneBarDockControl3.Manager = this.barManager1;
+            this.standaloneBarDockControl3.Margin = new System.Windows.Forms.Padding(605354, 605354, 605354, 605354);
+            this.standaloneBarDockControl3.Name = "standaloneBarDockControl3";
+            this.standaloneBarDockControl3.Size = new System.Drawing.Size(70, 270);
+            this.standaloneBarDockControl3.Text = "standaloneBarDockControl3";
             // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar3,
-            this.bar1});
+            this.bar1,
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.DockControls.Add(this.standaloneBarDockControl2);
+            this.barManager1.DockControls.Add(this.standaloneBarDockControl3);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barStaticItem2,
@@ -434,8 +456,11 @@
             this.barStaticItem4,
             this.UpBarButtonItem,
             this.DownBarButtonItem,
-            this.ClearBarButtonItem});
-            this.barManager1.MaxItemId = 6;
+            this.Clear2BarButtonItem,
+            this.UndoBarButtonItem,
+            this.RedoBarButtonItem,
+            this.Clear1BarButtonItem});
+            this.barManager1.MaxItemId = 12;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar3
@@ -456,16 +481,19 @@
             // 
             // barStaticItem2
             // 
+            this.barStaticItem2.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.barStaticItem2.Id = 0;
             this.barStaticItem2.Name = "barStaticItem2";
             // 
             // barStaticItem3
             // 
+            this.barStaticItem3.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.barStaticItem3.Id = 1;
             this.barStaticItem3.Name = "barStaticItem3";
             // 
             // barStaticItem4
             // 
+            this.barStaticItem4.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.barStaticItem4.Id = 2;
             this.barStaticItem4.Name = "barStaticItem4";
             // 
@@ -479,7 +507,7 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.UpBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.DownBarButtonItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.ClearBarButtonItem)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.Clear2BarButtonItem)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.OptionsBar.AutoPopupMode = DevExpress.XtraBars.BarAutoPopupMode.None;
             this.bar1.OptionsBar.DisableClose = true;
@@ -505,13 +533,68 @@
             this.DownBarButtonItem.Name = "DownBarButtonItem";
             this.DownBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DownBarButtonItem_ItemClick);
             // 
-            // ClearBarButtonItem
+            // Clear2BarButtonItem
             // 
-            this.ClearBarButtonItem.Caption = "barButtonItem1";
-            this.ClearBarButtonItem.Id = 5;
-            this.ClearBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ClearBarButtonItem.ImageOptions.SvgImage")));
-            this.ClearBarButtonItem.Name = "ClearBarButtonItem";
-            this.ClearBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearBarButtonItem_ItemClick);
+            this.Clear2BarButtonItem.Caption = "barButtonItem1";
+            this.Clear2BarButtonItem.Id = 5;
+            this.Clear2BarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Clear2BarButtonItem.ImageOptions.SvgImage")));
+            this.Clear2BarButtonItem.Name = "Clear2BarButtonItem";
+            this.Clear2BarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Clear2BarButtonItem_ItemClick);
+            // 
+            // standaloneBarDockControl2
+            // 
+            this.standaloneBarDockControl2.CausesValidation = false;
+            this.standaloneBarDockControl2.IsVertical = true;
+            this.standaloneBarDockControl2.Location = new System.Drawing.Point(1713, 26);
+            this.standaloneBarDockControl2.Manager = this.barManager1;
+            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(70, 270);
+            this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Custom 4";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.bar2.FloatLocation = new System.Drawing.Point(1912, 614);
+            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.UndoBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.RedoBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.Clear1BarButtonItem)});
+            this.bar2.OptionsBar.AllowQuickCustomization = false;
+            this.bar2.OptionsBar.AutoPopupMode = DevExpress.XtraBars.BarAutoPopupMode.None;
+            this.bar2.OptionsBar.DisableClose = true;
+            this.bar2.OptionsBar.DisableCustomization = true;
+            this.bar2.OptionsBar.DrawBorder = false;
+            this.bar2.OptionsBar.DrawDragBorder = false;
+            this.bar2.StandaloneBarDockControl = this.standaloneBarDockControl3;
+            this.bar2.Text = "Custom 4";
+            // 
+            // UndoBarButtonItem
+            // 
+            this.UndoBarButtonItem.Caption = "barButtonItem1";
+            this.UndoBarButtonItem.Id = 6;
+            this.UndoBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("UndoBarButtonItem.ImageOptions.SvgImage")));
+            this.UndoBarButtonItem.Name = "UndoBarButtonItem";
+            this.UndoBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UndoBarButtonItem_ItemClick);
+            // 
+            // RedoBarButtonItem
+            // 
+            this.RedoBarButtonItem.Caption = "barButtonItem2";
+            this.RedoBarButtonItem.Id = 7;
+            this.RedoBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("RedoBarButtonItem.ImageOptions.SvgImage")));
+            this.RedoBarButtonItem.Name = "RedoBarButtonItem";
+            this.RedoBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RedoBarButtonItem_ItemClick);
+            // 
+            // Clear1BarButtonItem
+            // 
+            this.Clear1BarButtonItem.Caption = "barButtonItem3";
+            this.Clear1BarButtonItem.Id = 8;
+            this.Clear1BarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Clear1BarButtonItem.ImageOptions.SvgImage")));
+            this.Clear1BarButtonItem.Name = "Clear1BarButtonItem";
+            this.Clear1BarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Clear1BarButtonItem_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -519,15 +602,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(2016, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1809, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1293);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1202);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(2016, 48);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1809, 48);
             // 
             // barDockControlLeft
             // 
@@ -535,15 +618,102 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 1293);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 1202);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(2016, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1809, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 1293);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 1202);
+            // 
+            // FromMemoEdit
+            // 
+            this.FromMemoEdit.Location = new System.Drawing.Point(26, 26);
+            this.FromMemoEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.FromMemoEdit.MenuManager = this.ribbonControl;
+            this.FromMemoEdit.Name = "FromMemoEdit";
+            this.FromMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
+            this.FromMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
+            this.FromMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.FromMemoEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.FromMemoEdit.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.FromMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.FromMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.FromMemoEdit.Properties.WordWrap = false;
+            this.FromMemoEdit.Size = new System.Drawing.Size(1641, 270);
+            this.FromMemoEdit.StyleController = this.layoutControl2;
+            this.FromMemoEdit.TabIndex = 6;
+            this.FromMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
+            this.FromMemoEdit.TextChanged += new System.EventHandler(this.FromMemoEdit_TextChanged);
+            this.FromMemoEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FromMemoEdit_KeyDown);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem5});
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1771, 322);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.FromMemoEdit;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem2";
+            this.layoutControlItem3.Size = new System.Drawing.Size(1649, 278);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.standaloneBarDockControl3;
+            this.layoutControlItem5.Location = new System.Drawing.Point(1649, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(78, 278);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.ToMemoEdit);
+            this.layoutControl1.Controls.Add(this.standaloneBarDockControl2);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(1809, 725);
+            this.layoutControl1.TabIndex = 4;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ToMemoEdit
+            // 
+            this.ToMemoEdit.Location = new System.Drawing.Point(26, 26);
+            this.ToMemoEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.ToMemoEdit.MenuManager = this.ribbonControl;
+            this.ToMemoEdit.Name = "ToMemoEdit";
+            this.ToMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
+            this.ToMemoEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.ToMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
+            this.ToMemoEdit.Properties.Appearance.Options.UseBackColor = true;
+            this.ToMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.ToMemoEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.ToMemoEdit.Properties.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            this.ToMemoEdit.Properties.ReadOnly = true;
+            this.ToMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.ToMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.ToMemoEdit.Properties.WordWrap = false;
+            this.ToMemoEdit.Size = new System.Drawing.Size(1679, 673);
+            this.ToMemoEdit.StyleController = this.layoutControl1;
+            this.ToMemoEdit.TabIndex = 6;
+            this.ToMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
+            this.ToMemoEdit.DoubleClick += new System.EventHandler(this.ToMemoEdit_DoubleClick);
             // 
             // Root
             // 
@@ -553,7 +723,7 @@
             this.layoutControlItem2,
             this.layoutControlItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(83, 96);
+            this.Root.Size = new System.Drawing.Size(1809, 725);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
@@ -561,24 +731,29 @@
             this.layoutControlItem2.Control = this.ToMemoEdit;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(30, 52);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1687, 681);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.standaloneBarDockControl2;
-            this.layoutControlItem1.Location = new System.Drawing.Point(30, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(1687, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(9, 52);
+            this.layoutControlItem1.Size = new System.Drawing.Size(78, 681);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // workspaceManager1
+            // 
+            this.workspaceManager1.TargetControl = this;
+            this.workspaceManager1.TransitionType = pushTransition1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2016, 1341);
+            this.ClientSize = new System.Drawing.Size(1809, 1250);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonControl);
             this.Controls.Add(this.barDockControlLeft);
@@ -587,15 +762,15 @@
             this.Controls.Add(this.barDockControlTop);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Form1.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.MinimumSize = new System.Drawing.Size(1809, 1250);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
             this.Text = "Log++ BUG Hunters";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find1RepositoryItemTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find2RepositoryItemTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Find3RepositoryItemTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
@@ -605,11 +780,16 @@
             this.splitContainerControl1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FromMemoEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ToMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -626,17 +806,10 @@
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem;
         private DevExpress.XtraBars.BarButtonItem FindBarButtonItem;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarEditItem Find1BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Find1RepositoryItemTextEdit;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarEditItem barEditItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-        private DevExpress.XtraBars.BarEditItem Find2BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Find2RepositoryItemTextEdit;
-        private DevExpress.XtraBars.BarEditItem Find3BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Find3RepositoryItemTextEdit;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraEditors.MemoEdit FromMemoEdit;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
@@ -658,12 +831,32 @@
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarButtonItem UpBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem DownBarButtonItem;
-        private DevExpress.XtraBars.BarButtonItem ClearBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem Clear2BarButtonItem;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.MemoEdit ToMemoEdit;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl2;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraEditors.MemoEdit FromMemoEdit;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl3;
+        private DevExpress.XtraBars.Bar bar2;
+        private DevExpress.XtraBars.BarButtonItem UndoBarButtonItem;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraBars.BarButtonItem RedoBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem Clear1BarButtonItem;
+        private DevExpress.Utils.WorkspaceManager workspaceManager1;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup3;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup4;
+        private DevExpress.XtraBars.BarEditItem Find1BarEditItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraBars.BarEditItem Find2BarEditItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraBars.BarEditItem Find3BarEditItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
     }
 }

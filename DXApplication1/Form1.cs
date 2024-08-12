@@ -1,6 +1,4 @@
-﻿using DevExpress.Data.ExpressionEditor;
-using DevExpress.LookAndFeel;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using Microsoft.Win32;
@@ -16,27 +14,35 @@ namespace DXApplication1
 {
     public partial class Form1 : RibbonForm
     {
-
         private UndoRedoManager undoRedoManager;
 
         private Color color1 = Color.FromArgb(255, 0, 209, 246);
         private Color color2 = Color.FromArgb(255, 83, 186, 122);
         private Color color3 = Color.FromArgb(255, 252, 109, 119);
+
+        private Color selectionColor = Color.FromArgb(255, 33, 66, 131);
+
         private string find1 { get; set; }
         private string find2 { get; set; }
         private string find3 { get; set; }
 
+        private int searchStartIndex = 0;
         public Form1()
         {
             InitializeComponent();
 
+            ResizeFormToScreenPercentage(0.75);
+
+            FromMemoEdit.Properties.AdvancedModeOptions.SelectionColor = selectionColor;
+            ToMemoEdit.Properties.AdvancedModeOptions.SelectionColor = selectionColor;
+
             undoRedoManager = new UndoRedoManager();
 
-            splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 12 * 7;
+            splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 12 * 4;
 
-            Find1RepositoryItemTextEdit.Appearance.ForeColor = color1;
-            Find2RepositoryItemTextEdit.Appearance.ForeColor = color2;
-            Find3RepositoryItemTextEdit.Appearance.ForeColor = color3;
+            repositoryItemButtonEdit1.Appearance.ForeColor = color1;
+            repositoryItemButtonEdit2.Appearance.ForeColor = color2;
+            repositoryItemButtonEdit3.Appearance.ForeColor = color3;
 
             barStaticItem2.Appearance.ForeColor = color1;
             barStaticItem3.Appearance.ForeColor = color2;
@@ -51,6 +57,19 @@ namespace DXApplication1
                     Find3BarEditItem.EditValue = key.GetValue("FindAll3");
                 }
             }
+        }
+        private void ResizeFormToScreenPercentage(double percentage)
+        {
+            Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
+            int newWidth = (int)(screenBounds.Width * percentage);
+            int newHeight = (int)(screenBounds.Height * percentage);
+            this.Width = newWidth;
+            this.Height = newHeight;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(
+                (screenBounds.Width - this.Width) / 2,
+                (screenBounds.Height - this.Height) / 2
+            );
         }
         private void FindBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -121,7 +140,6 @@ namespace DXApplication1
             ToMemoEdit.Text = string.Join(Environment.NewLine, l);
             FromMemoEdit.Text = FromMemoEdit.Text;
         }
-
         private void ToMemoEdit_CustomHighlightText(object sender, DevExpress.XtraEditors.TextEditCustomHighlightTextEventArgs e)
         {
             if (find1 != null)
@@ -131,21 +149,21 @@ namespace DXApplication1
             if (find3 != null)
                 e.HighlightWords(find3, color3);
         }
-
         private void FromMemoEdit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
+                FromMemoEdit.SuspendLayout();
                 byte[] bytes = Encoding.UTF8.GetBytes(Clipboard.GetText());
                 var clipBoard = Encoding.UTF8.GetString(bytes);
-
-                FromMemoEdit.EditValue = string.Empty;
 
                 FromMemoEdit.EditValue = clipBoard;
                 //using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
                 //{
                 //    key.SetValue("Text", text, RegistryValueKind.String);
                 //}
+
+                FromMemoEdit.ResumeLayout();
 
                 e.Handled = true;
             }
@@ -160,7 +178,6 @@ namespace DXApplication1
                 e.Handled = true;
             }
         }
-
         private void ToMemoEdit_DoubleClick(object sender, EventArgs e)
         {
             MemoEdit memoEdit = sender as MemoEdit;
@@ -170,7 +187,6 @@ namespace DXApplication1
 
             select(FromMemoEdit, searchText);
         }
-
         private void select(MemoEdit sender, string searchText)
         {
             MemoEdit memoEdit = sender as MemoEdit;
@@ -179,10 +195,10 @@ namespace DXApplication1
 
             if (startIndex != -1)
             {
-                memoEdit.Focus();
                 memoEdit.SelectionStart = startIndex;
                 memoEdit.SelectionLength = 1;
                 memoEdit.ScrollToCaret();
+                memoEdit.Focus();
 
                 int lineStart = memoEdit.Text.LastIndexOf(Environment.NewLine, startIndex) + 1;
                 int lineEnd = memoEdit.Text.IndexOf(Environment.NewLine, startIndex);
@@ -193,7 +209,6 @@ namespace DXApplication1
                 memoEdit.Select(lineStart, lineEnd - lineStart);
             }
         }
-
         private void FromMemoEdit_TextChanged(object sender, EventArgs e)
         {
             if (!undoRedoManager.IsUndoOrRedo)
@@ -201,21 +216,61 @@ namespace DXApplication1
                 undoRedoManager.AddState(Convert.ToString(FromMemoEdit.EditValue));
             }
         }
-        private void ClearBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        private void Clear2BarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             ToMemoEdit.Clear();
         }
-
         private void UpBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             ToMemoEdit.SelectionStart = 0;
             ToMemoEdit.ScrollToCaret();
+            ToMemoEdit.Focus();
         }
-
         private void DownBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ToMemoEdit.SelectionStart = ToMemoEdit.Text.Length;
+            var last = ToMemoEdit.Text.LastIndexOf(Environment.NewLine) + 2;
+            if (last > ToMemoEdit.Text.Length)
+                last = ToMemoEdit.Text.Length;
+
+            ToMemoEdit.SelectionStart = last;
             ToMemoEdit.ScrollToCaret();
+            ToMemoEdit.Focus();
+        }
+        private void Clear1BarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FromMemoEdit.Clear();
+
+        }
+        private void UndoBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            undoRedoManager.Undo(FromMemoEdit);
+        }
+        private void RedoBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            undoRedoManager.Redo(FromMemoEdit);
+        }
+        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string searchText = ((DevExpress.XtraEditors.ButtonEdit)sender).Text;
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, searchStartIndex);
+                if (searchStartIndex == -1)
+                    searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, 0);
+            }
+        }
+        private int FindAndHighlightText(string memoText, string searchText, int startIndex)
+        {
+            int index = memoText.IndexOf(searchText, startIndex, StringComparison.OrdinalIgnoreCase);
+            if (index != -1)
+            {
+                FromMemoEdit.SelectionStart = index;
+                FromMemoEdit.SelectionLength = searchText.Length;
+                FromMemoEdit.ScrollToCaret();
+                FromMemoEdit.Focus();
+                return index + searchText.Length;
+            }
+            return -1;
         }
     }
 }
