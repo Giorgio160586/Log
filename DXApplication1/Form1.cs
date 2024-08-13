@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,12 +27,25 @@ namespace DXApplication1
         private string find2 { get; set; }
         private string find3 { get; set; }
 
+        public static string version
+        {
+            get
+            {
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+                return versionInfo.FileVersion;
+            }
+        }
+
         private int searchStartIndex = 0;
         public Form1()
         {
             InitializeComponent();
 
             ResizeFormToScreenPercentage(0.75);
+
+            var process = Environment.Is64BitProcess ? "x64" : "x86";
+            this.Text += $" - v{version} ({process})";
 
             FromMemoEdit.Properties.AdvancedModeOptions.SelectionColor = selectionColor;
             ToMemoEdit.Properties.AdvancedModeOptions.SelectionColor = selectionColor;
@@ -156,13 +170,7 @@ namespace DXApplication1
                 FromMemoEdit.SuspendLayout();
                 byte[] bytes = Encoding.UTF8.GetBytes(Clipboard.GetText());
                 var clipBoard = Encoding.UTF8.GetString(bytes);
-
                 FromMemoEdit.EditValue = clipBoard;
-                //using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
-                //{
-                //    key.SetValue("Text", text, RegistryValueKind.String);
-                //}
-
                 FromMemoEdit.ResumeLayout();
 
                 e.Handled = true;
@@ -184,13 +192,13 @@ namespace DXApplication1
             int charIndex = memoEdit.SelectionStart;
             int lineIndex = memoEdit.GetLineFromCharIndex(charIndex);
             string searchText = memoEdit.Lines[lineIndex];
-
-            select(FromMemoEdit, searchText);
+            SelectRow(FromMemoEdit, searchText);
         }
-        private void select(MemoEdit sender, string searchText)
+        private void SelectRow(MemoEdit sender, string searchText)
         {
             MemoEdit memoEdit = sender as MemoEdit;
 
+            memoEdit.SuspendLayout();
             int startIndex = sender.Text.IndexOf(searchText);
 
             if (startIndex != -1)
@@ -208,6 +216,8 @@ namespace DXApplication1
                 }
                 memoEdit.Select(lineStart, lineEnd - lineStart);
             }
+
+            memoEdit.ResumeLayout();
         }
         private void FromMemoEdit_TextChanged(object sender, EventArgs e)
         {

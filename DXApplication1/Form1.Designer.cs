@@ -153,7 +153,7 @@
             this.ribbonControl.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonControl.MaxItemId = 66;
+            this.ribbonControl.MaxItemId = 67;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.OptionsAnimation.PageCategoryShowAnimation = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.OptionsExpandCollapseMenu.ShowRibbonGroup = DevExpress.Utils.DefaultBoolean.False;
@@ -409,7 +409,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.layoutControl1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1809, 894);
-            this.splitContainerControl1.SplitterPosition = 147;
+            this.splitContainerControl1.SplitterPosition = 331;
             this.splitContainerControl1.TabIndex = 4;
             // 
             // layoutControl2
@@ -418,11 +418,11 @@
             this.layoutControl2.Controls.Add(this.FromMemoEdit);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1809, 147);
+            this.layoutControl2.Size = new System.Drawing.Size(1809, 331);
             this.layoutControl2.TabIndex = 5;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -430,9 +430,9 @@
             // 
             this.standaloneBarDockControl3.CausesValidation = false;
             this.standaloneBarDockControl3.IsVertical = true;
-            this.standaloneBarDockControl3.Location = new System.Drawing.Point(1675, 26);
+            this.standaloneBarDockControl3.Location = new System.Drawing.Point(1713, 26);
             this.standaloneBarDockControl3.Manager = this.barManager1;
-            this.standaloneBarDockControl3.Margin = new System.Windows.Forms.Padding(605354, 605354, 605354, 605354);
+            this.standaloneBarDockControl3.Margin = new System.Windows.Forms.Padding(1362046, 1362046, 1362046, 1362046);
             this.standaloneBarDockControl3.Name = "standaloneBarDockControl3";
             this.standaloneBarDockControl3.Size = new System.Drawing.Size(70, 270);
             this.standaloneBarDockControl3.Text = "standaloneBarDockControl3";
@@ -547,7 +547,7 @@
             this.standaloneBarDockControl2.IsVertical = true;
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(1713, 26);
             this.standaloneBarDockControl2.Manager = this.barManager1;
-            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
             this.standaloneBarDockControl2.Size = new System.Drawing.Size(70, 270);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
@@ -634,7 +634,7 @@
             this.FromMemoEdit.Margin = new System.Windows.Forms.Padding(0);
             this.FromMemoEdit.MenuManager = this.ribbonControl;
             this.FromMemoEdit.Name = "FromMemoEdit";
-            this.FromMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
+            this.FromMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
             this.FromMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
             this.FromMemoEdit.Properties.Appearance.Options.UseFont = true;
             this.FromMemoEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -642,7 +642,7 @@
             this.FromMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.FromMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.FromMemoEdit.Properties.WordWrap = false;
-            this.FromMemoEdit.Size = new System.Drawing.Size(1641, 270);
+            this.FromMemoEdit.Size = new System.Drawing.Size(1679, 279);
             this.FromMemoEdit.StyleController = this.layoutControl2;
             this.FromMemoEdit.TabIndex = 6;
             this.FromMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
@@ -657,7 +657,7 @@
             this.layoutControlItem3,
             this.layoutControlItem5});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1771, 322);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1809, 331);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem3
@@ -665,16 +665,16 @@
             this.layoutControlItem3.Control = this.FromMemoEdit;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem2";
-            this.layoutControlItem3.Size = new System.Drawing.Size(1649, 278);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1687, 287);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.standaloneBarDockControl3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(1649, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(1687, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(78, 278);
+            this.layoutControlItem5.Size = new System.Drawing.Size(78, 287);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -684,11 +684,11 @@
             this.layoutControl1.Controls.Add(this.standaloneBarDockControl2);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(176720512, 176720512, 176720512, 176720512);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1809, 725);
+            this.layoutControl1.Size = new System.Drawing.Size(1809, 541);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -698,7 +698,7 @@
             this.ToMemoEdit.Margin = new System.Windows.Forms.Padding(0);
             this.ToMemoEdit.MenuManager = this.ribbonControl;
             this.ToMemoEdit.Name = "ToMemoEdit";
-            this.ToMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.False;
+            this.ToMemoEdit.Properties.AdvancedModeOptions.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
             this.ToMemoEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.ToMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 11F);
             this.ToMemoEdit.Properties.Appearance.Options.UseBackColor = true;
@@ -709,7 +709,7 @@
             this.ToMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.ToMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.ToMemoEdit.Properties.WordWrap = false;
-            this.ToMemoEdit.Size = new System.Drawing.Size(1679, 673);
+            this.ToMemoEdit.Size = new System.Drawing.Size(1679, 489);
             this.ToMemoEdit.StyleController = this.layoutControl1;
             this.ToMemoEdit.TabIndex = 6;
             this.ToMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
@@ -723,7 +723,7 @@
             this.layoutControlItem2,
             this.layoutControlItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1809, 725);
+            this.Root.Size = new System.Drawing.Size(1809, 541);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
@@ -731,7 +731,7 @@
             this.layoutControlItem2.Control = this.ToMemoEdit;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1687, 681);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1687, 497);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -740,7 +740,7 @@
             this.layoutControlItem1.Control = this.standaloneBarDockControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(1687, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(78, 681);
+            this.layoutControlItem1.Size = new System.Drawing.Size(78, 497);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
