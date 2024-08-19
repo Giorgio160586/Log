@@ -168,21 +168,21 @@ namespace DXApplication1
             if (e.Control && e.KeyCode == Keys.V)
             {
                 FromMemoEdit.SuspendLayout();
-                byte[] bytes = Encoding.UTF8.GetBytes(Clipboard.GetText());
-                var clipBoard = Encoding.UTF8.GetString(bytes);
-                FromMemoEdit.EditValue = clipBoard;
+                FromMemoEdit.EditValue = Clipboard.GetText();
                 FromMemoEdit.ResumeLayout();
-
+                e.SuppressKeyPress = true;
                 e.Handled = true;
             }
             if (e.Control && e.KeyCode == Keys.Z)
             {
                 undoRedoManager.Undo(FromMemoEdit);
+                e.SuppressKeyPress = true;
                 e.Handled = true;
             }
             else if (e.Control && e.KeyCode == Keys.Y)
             {
                 undoRedoManager.Redo(FromMemoEdit);
+                e.SuppressKeyPress = true;
                 e.Handled = true;
             }
         }
