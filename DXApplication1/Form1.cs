@@ -114,7 +114,7 @@ namespace DXApplication1
                 filters.Add(find3);
 
             if (filters.Count > 0)
-                l = l.Where(f => filters.Any(filter => f.Contains(filter))).Distinct().ToArray();
+                l = l.Where(f => filters.Any(filter => f.ToUpper().Contains(filter.ToUpper()))).Distinct().ToArray();
 
             if (!string.IsNullOrEmpty(find1))
                 barStaticItem2.Caption = $"{find1} ({l.Where(f => f.Contains(find1)).Count()} hits)";
@@ -271,6 +271,7 @@ namespace DXApplication1
         }
         private int FindAndHighlightText(string memoText, string searchText, int startIndex)
         {
+            if (startIndex < 0) startIndex = 0;
             int index = memoText.IndexOf(searchText, startIndex, StringComparison.OrdinalIgnoreCase);
             if (index != -1)
             {
