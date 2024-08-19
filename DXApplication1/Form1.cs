@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraWaitForm;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,8 @@ namespace DXApplication1
         }
         private void FindBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(DXWaitForm), true, true, false);
+            
             FromMemoEdit.SuspendLayout();
             ToMemoEdit.SuspendLayout();
 
@@ -153,6 +156,8 @@ namespace DXApplication1
             ToMemoEdit.ResumeLayout();
             ToMemoEdit.Text = string.Join(Environment.NewLine, l);
             FromMemoEdit.Text = FromMemoEdit.Text;
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
         private void ToMemoEdit_CustomHighlightText(object sender, DevExpress.XtraEditors.TextEditCustomHighlightTextEventArgs e)
         {
@@ -167,9 +172,11 @@ namespace DXApplication1
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(DXWaitForm), true, true, false);
                 FromMemoEdit.SuspendLayout();
                 FromMemoEdit.EditValue = Clipboard.GetText();
                 FromMemoEdit.ResumeLayout();
+                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
