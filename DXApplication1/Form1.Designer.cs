@@ -255,7 +255,6 @@
             // 
             // Contains1BarCheckItem
             // 
-            this.Contains1BarCheckItem.Caption = "CC";
             this.Contains1BarCheckItem.Id = 48;
             this.Contains1BarCheckItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Contains1BarCheckItem.ImageOptions.SvgImage")));
             this.Contains1BarCheckItem.Name = "Contains1BarCheckItem";
@@ -263,7 +262,6 @@
             // 
             // Contains3BarCheckItem
             // 
-            this.Contains3BarCheckItem.Caption = "barCheckItem5";
             this.Contains3BarCheckItem.Id = 51;
             this.Contains3BarCheckItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Contains3BarCheckItem.ImageOptions.SvgImage")));
             this.Contains3BarCheckItem.Name = "Contains3BarCheckItem";
@@ -272,7 +270,6 @@
             // 
             // Contains2BarCheckItem
             // 
-            this.Contains2BarCheckItem.Caption = "barCheckItem1";
             this.Contains2BarCheckItem.Id = 52;
             this.Contains2BarCheckItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Contains2BarCheckItem.ImageOptions.SvgImage")));
             this.Contains2BarCheckItem.Name = "Contains2BarCheckItem";
@@ -290,7 +287,6 @@
             // 
             // Find1BarEditItem
             // 
-            this.Find1BarEditItem.Caption = "barEditItem1";
             this.Find1BarEditItem.Edit = this.repositoryItemButtonEdit1;
             this.Find1BarEditItem.EditWidth = 400;
             this.Find1BarEditItem.Id = 63;
@@ -310,13 +306,12 @@
             this.barButtonGroup3.Caption = "barButtonGroup3";
             this.barButtonGroup3.Id = 60;
             this.barButtonGroup3.ItemLinks.Add(this.Find2BarEditItem);
-            this.barButtonGroup3.ItemLinks.Add(this.Contains3BarCheckItem);
+            this.barButtonGroup3.ItemLinks.Add(this.Contains2BarCheckItem);
             this.barButtonGroup3.MultiColumn = DevExpress.Utils.DefaultBoolean.False;
             this.barButtonGroup3.Name = "barButtonGroup3";
             // 
             // Find2BarEditItem
             // 
-            this.Find2BarEditItem.Caption = "barEditItem1";
             this.Find2BarEditItem.Edit = this.repositoryItemButtonEdit2;
             this.Find2BarEditItem.EditWidth = 400;
             this.Find2BarEditItem.Id = 64;
@@ -336,13 +331,12 @@
             this.barButtonGroup4.Caption = "barButtonGroup4";
             this.barButtonGroup4.Id = 61;
             this.barButtonGroup4.ItemLinks.Add(this.Find3BarEditItem);
-            this.barButtonGroup4.ItemLinks.Add(this.Contains2BarCheckItem);
+            this.barButtonGroup4.ItemLinks.Add(this.Contains3BarCheckItem);
             this.barButtonGroup4.MultiColumn = DevExpress.Utils.DefaultBoolean.False;
             this.barButtonGroup4.Name = "barButtonGroup4";
             // 
             // Find3BarEditItem
             // 
-            this.Find3BarEditItem.Caption = "barEditItem1";
             this.Find3BarEditItem.Edit = this.repositoryItemButtonEdit3;
             this.Find3BarEditItem.EditWidth = 400;
             this.Find3BarEditItem.Id = 65;
@@ -418,7 +412,7 @@
             this.layoutControl2.Controls.Add(this.FromMemoEdit);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(397621152);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
             this.layoutControl2.Root = this.layoutControlGroup1;
@@ -430,9 +424,9 @@
             // 
             this.standaloneBarDockControl3.CausesValidation = false;
             this.standaloneBarDockControl3.IsVertical = true;
-            this.standaloneBarDockControl3.Location = new System.Drawing.Point(1713, 26);
+            this.standaloneBarDockControl3.Location = new System.Drawing.Point(1727, 12);
             this.standaloneBarDockControl3.Manager = this.barManager1;
-            this.standaloneBarDockControl3.Margin = new System.Windows.Forms.Padding(1362046, 1362046, 1362046, 1362046);
+            this.standaloneBarDockControl3.Margin = new System.Windows.Forms.Padding(1362046);
             this.standaloneBarDockControl3.Name = "standaloneBarDockControl3";
             this.standaloneBarDockControl3.Size = new System.Drawing.Size(70, 270);
             this.standaloneBarDockControl3.Text = "standaloneBarDockControl3";
@@ -519,7 +513,7 @@
             // 
             // UpBarButtonItem
             // 
-            this.UpBarButtonItem.Caption = "barButtonItem1";
+            this.UpBarButtonItem.Caption = "Up";
             this.UpBarButtonItem.Id = 3;
             this.UpBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("UpBarButtonItem.ImageOptions.SvgImage")));
             this.UpBarButtonItem.Name = "UpBarButtonItem";
@@ -527,7 +521,7 @@
             // 
             // DownBarButtonItem
             // 
-            this.DownBarButtonItem.Caption = "barButtonItem1";
+            this.DownBarButtonItem.Caption = "Down";
             this.DownBarButtonItem.Id = 4;
             this.DownBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("DownBarButtonItem.ImageOptions.SvgImage")));
             this.DownBarButtonItem.Name = "DownBarButtonItem";
@@ -535,7 +529,7 @@
             // 
             // Clear2BarButtonItem
             // 
-            this.Clear2BarButtonItem.Caption = "barButtonItem1";
+            this.Clear2BarButtonItem.Caption = "Clear";
             this.Clear2BarButtonItem.Id = 5;
             this.Clear2BarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Clear2BarButtonItem.ImageOptions.SvgImage")));
             this.Clear2BarButtonItem.Name = "Clear2BarButtonItem";
@@ -545,9 +539,9 @@
             // 
             this.standaloneBarDockControl2.CausesValidation = false;
             this.standaloneBarDockControl2.IsVertical = true;
-            this.standaloneBarDockControl2.Location = new System.Drawing.Point(1713, 26);
+            this.standaloneBarDockControl2.Location = new System.Drawing.Point(1727, 12);
             this.standaloneBarDockControl2.Manager = this.barManager1;
-            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
+            this.standaloneBarDockControl2.Margin = new System.Windows.Forms.Padding(397621152);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
             this.standaloneBarDockControl2.Size = new System.Drawing.Size(70, 270);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
@@ -574,7 +568,7 @@
             // 
             // UndoBarButtonItem
             // 
-            this.UndoBarButtonItem.Caption = "barButtonItem1";
+            this.UndoBarButtonItem.Caption = "Undo";
             this.UndoBarButtonItem.Id = 6;
             this.UndoBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("UndoBarButtonItem.ImageOptions.SvgImage")));
             this.UndoBarButtonItem.Name = "UndoBarButtonItem";
@@ -582,7 +576,7 @@
             // 
             // RedoBarButtonItem
             // 
-            this.RedoBarButtonItem.Caption = "barButtonItem2";
+            this.RedoBarButtonItem.Caption = "Redo";
             this.RedoBarButtonItem.Id = 7;
             this.RedoBarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("RedoBarButtonItem.ImageOptions.SvgImage")));
             this.RedoBarButtonItem.Name = "RedoBarButtonItem";
@@ -590,7 +584,7 @@
             // 
             // Clear1BarButtonItem
             // 
-            this.Clear1BarButtonItem.Caption = "barButtonItem3";
+            this.Clear1BarButtonItem.Caption = "Clear";
             this.Clear1BarButtonItem.Id = 8;
             this.Clear1BarButtonItem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Clear1BarButtonItem.ImageOptions.SvgImage")));
             this.Clear1BarButtonItem.Name = "Clear1BarButtonItem";
@@ -630,7 +624,7 @@
             // 
             // FromMemoEdit
             // 
-            this.FromMemoEdit.Location = new System.Drawing.Point(26, 26);
+            this.FromMemoEdit.Location = new System.Drawing.Point(12, 12);
             this.FromMemoEdit.Margin = new System.Windows.Forms.Padding(0);
             this.FromMemoEdit.MenuManager = this.ribbonControl;
             this.FromMemoEdit.Name = "FromMemoEdit";
@@ -642,7 +636,7 @@
             this.FromMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.FromMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.FromMemoEdit.Properties.WordWrap = false;
-            this.FromMemoEdit.Size = new System.Drawing.Size(1679, 279);
+            this.FromMemoEdit.Size = new System.Drawing.Size(1711, 307);
             this.FromMemoEdit.StyleController = this.layoutControl2;
             this.FromMemoEdit.TabIndex = 6;
             this.FromMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
@@ -665,16 +659,16 @@
             this.layoutControlItem3.Control = this.FromMemoEdit;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem2";
-            this.layoutControlItem3.Size = new System.Drawing.Size(1687, 287);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1715, 311);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.standaloneBarDockControl3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(1687, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(1715, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(78, 287);
+            this.layoutControlItem5.Size = new System.Drawing.Size(74, 311);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -684,7 +678,7 @@
             this.layoutControl1.Controls.Add(this.standaloneBarDockControl2);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(397621152, 397621152, 397621152, 397621152);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(397621152);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2256, 764, 1462, 900);
             this.layoutControl1.Root = this.Root;
@@ -694,7 +688,7 @@
             // 
             // ToMemoEdit
             // 
-            this.ToMemoEdit.Location = new System.Drawing.Point(26, 26);
+            this.ToMemoEdit.Location = new System.Drawing.Point(12, 12);
             this.ToMemoEdit.Margin = new System.Windows.Forms.Padding(0);
             this.ToMemoEdit.MenuManager = this.ribbonControl;
             this.ToMemoEdit.Name = "ToMemoEdit";
@@ -709,7 +703,7 @@
             this.ToMemoEdit.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.ToMemoEdit.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.ToMemoEdit.Properties.WordWrap = false;
-            this.ToMemoEdit.Size = new System.Drawing.Size(1679, 489);
+            this.ToMemoEdit.Size = new System.Drawing.Size(1711, 517);
             this.ToMemoEdit.StyleController = this.layoutControl1;
             this.ToMemoEdit.TabIndex = 6;
             this.ToMemoEdit.CustomHighlightText += new DevExpress.XtraEditors.TextEditCustomHighlightTextEventHandler(this.ToMemoEdit_CustomHighlightText);
@@ -731,16 +725,16 @@
             this.layoutControlItem2.Control = this.ToMemoEdit;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1687, 497);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1715, 521);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.standaloneBarDockControl2;
-            this.layoutControlItem1.Location = new System.Drawing.Point(1687, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(1715, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(78, 497);
+            this.layoutControlItem1.Size = new System.Drawing.Size(74, 521);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

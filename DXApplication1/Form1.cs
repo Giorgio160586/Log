@@ -120,17 +120,17 @@ namespace DXApplication1
                 l = l.Where(f => filters.Any(filter => f.ToUpper().Contains(filter.ToUpper()))).Distinct().ToArray();
 
             if (!string.IsNullOrEmpty(find1))
-                barStaticItem2.Caption = $"{find1} ({l.Where(f => f.Contains(find1)).Count()} hits)";
+                barStaticItem2.Caption = $"{find1} ({l.Where(f => f.ToUpper().Contains(find1.ToUpper())).Count()} hits)";
             else
                 barStaticItem2.Caption = string.Empty;
 
             if (!string.IsNullOrEmpty(find2))
-                barStaticItem3.Caption = $"{find2} ({l.Where(f => f.Contains(find2)).Count()} hits)";
+                barStaticItem3.Caption = $"{find2} ({l.Where(f => f.ToUpper().Contains(find2.ToUpper())).Count()} hits)";
             else
                 barStaticItem3.Caption = string.Empty;
 
             if (!string.IsNullOrEmpty(find3))
-                barStaticItem4.Caption = $"{find3} ({l.Where(f => f.Contains(find3)).Count()} hits)";
+                barStaticItem4.Caption = $"{find3} ({l.Where(f => f.ToUpper().Contains(find3.ToUpper())).Count()} hits)";
             else
                 barStaticItem4.Caption = string.Empty;
 
