@@ -24,10 +24,10 @@ namespace DXApplication1
 
         private Color selectionColor = Color.FromArgb(255, 33, 66, 131);
 
+        private const string subkey = @"SOFTWARE\Log++";
         private string find1 { get; set; }
         private string find2 { get; set; }
         private string find3 { get; set; }
-
         public static string version
         {
             get
@@ -39,6 +39,8 @@ namespace DXApplication1
         }
 
         private int searchStartIndex = 0;
+
+        private bool formLoaded = false;
         public Form1()
         {
             InitializeComponent();
@@ -62,14 +64,22 @@ namespace DXApplication1
             barStaticItem2.Appearance.ForeColor = color1;
             barStaticItem3.Appearance.ForeColor = color2;
             barStaticItem4.Appearance.ForeColor = color3;
-
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Log++"))
+        }
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            if (!formLoaded)
             {
-                if (key != null)
+                Application.DoEvents();
+                formLoaded = true;
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey))
                 {
-                    Find1BarEditItem.EditValue = key.GetValue("FindAll1");
-                    Find2BarEditItem.EditValue = key.GetValue("FindAll2");
-                    Find3BarEditItem.EditValue = key.GetValue("FindAll3");
+                    if (key != null)
+                    {
+                        Find1BarEditItem.EditValue = key.GetValue("FindAll1");
+                        Find2BarEditItem.EditValue = key.GetValue("FindAll2");
+                        Find3BarEditItem.EditValue = key.GetValue("FindAll3");
+                        SetText(Convert.ToString(key.GetValue("Text")));
+                    }
                 }
             }
         }
@@ -89,7 +99,7 @@ namespace DXApplication1
         private void FindBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(DXWaitForm), true, true, false);
-            
+
             FromMemoEdit.SuspendLayout();
             ToMemoEdit.SuspendLayout();
 
@@ -97,12 +107,8 @@ namespace DXApplication1
             find2 = Convert.ToString(Find2BarEditItem.EditValue);
             find3 = Convert.ToString(Find3BarEditItem.EditValue);
 
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Log++"))
-            {
-                key.SetValue("FindAll1", find1, RegistryValueKind.String);
-                key.SetValue("FindAll2", find2, RegistryValueKind.String);
-                key.SetValue("FindAll3", find3, RegistryValueKind.String);
-            }
+            SaveReg();
+
             var l = Convert.ToString(FromMemoEdit.EditValue).Split(Environment.NewLine.ToCharArray()).Where(f => !string.IsNullOrEmpty(f)).ToArray();
             var filters = new List<string>();
 
@@ -117,7 +123,7 @@ namespace DXApplication1
                 filters.Add(find3);
 
             if (filters.Count > 0)
-                l = l.Where(f => filters.Any(filter => f.ToUpper().Contains(filter.ToUpper()))).Distinct().ToArray();
+                l = l.Where(f => filters.Any(filter => f.ToUpper().Contains(filter.ToUpper()))).ToArray();
 
             if (!string.IsNullOrEmpty(find1))
                 barStaticItem2.Caption = $"{find1} ({l.Where(f => f.ToUpper().Contains(find1.ToUpper())).Count()} hits)";
@@ -133,6 +139,8 @@ namespace DXApplication1
                 barStaticItem4.Caption = $"{find3} ({l.Where(f => f.ToUpper().Contains(find3.ToUpper())).Count()} hits)";
             else
                 barStaticItem4.Caption = string.Empty;
+
+            l = l.Distinct().ToArray();
 
             if (Contains1BarCheckItem.Checked)
             {
@@ -168,15 +176,19 @@ namespace DXApplication1
             if (find3 != null)
                 e.HighlightWords(find3, color3);
         }
+        private void SetText(string text)
+        {
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(DXWaitForm), true, true, false);
+            FromMemoEdit.SuspendLayout();
+            FromMemoEdit.EditValue = text;
+            FromMemoEdit.ResumeLayout();
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+        }
         private void FromMemoEdit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
-                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(DXWaitForm), true, true, false);
-                FromMemoEdit.SuspendLayout();
-                FromMemoEdit.EditValue = Clipboard.GetText();
-                FromMemoEdit.ResumeLayout();
-                DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
+                SetText(Clipboard.GetText());
                 e.SuppressKeyPress = true;
                 e.Handled = true;
             }
@@ -256,7 +268,17 @@ namespace DXApplication1
         private void Clear1BarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             FromMemoEdit.Clear();
-
+            SaveReg();
+        }
+        private void SaveReg()
+        {
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(subkey))
+            {
+                key.SetValue("FindAll1", find1, RegistryValueKind.String);
+                key.SetValue("FindAll2", find2, RegistryValueKind.String);
+                key.SetValue("FindAll3", find3, RegistryValueKind.String);
+                key.SetValue("Text", Convert.ToString(FromMemoEdit.EditValue), RegistryValueKind.String);
+            }
         }
         private void UndoBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -268,13 +290,22 @@ namespace DXApplication1
         }
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            string searchText = ((DevExpress.XtraEditors.ButtonEdit)sender).Text;
-            if (!string.IsNullOrEmpty(searchText))
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Search)
             {
-                searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, searchStartIndex);
-                if (searchStartIndex == -1)
-                    searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, 0);
+                string searchText = ((DevExpress.XtraEditors.ButtonEdit)sender).Text;
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, searchStartIndex);
+                    if (searchStartIndex == -1)
+                        searchStartIndex = FindAndHighlightText(FromMemoEdit.Text, searchText, 0);
+                }
             }
+            else
+            {
+                ((DevExpress.XtraEditors.ButtonEdit)sender).EditValue = string.Empty;
+                SaveReg();
+            }
+
         }
         private int FindAndHighlightText(string memoText, string searchText, int startIndex)
         {
