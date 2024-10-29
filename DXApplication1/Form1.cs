@@ -1,7 +1,8 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
-using DevExpress.XtraWaitForm;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,6 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DXApplication1
@@ -25,9 +25,9 @@ namespace DXApplication1
         private Color selectionColor = Color.FromArgb(255, 33, 66, 131);
 
         private const string subkey = @"SOFTWARE\Log++";
-        private string find1 { get; set; }
-        private string find2 { get; set; }
-        private string find3 { get; set; }
+        private List<string> find1 { get; set; }
+        private List<string> find2 { get; set; }
+        private List<string> find3 { get; set; }
         public static string version
         {
             get
@@ -57,9 +57,9 @@ namespace DXApplication1
 
             splitContainerControl1.SplitterPosition = splitContainerControl1.Height / 12 * 4;
 
-            repositoryItemButtonEdit1.Appearance.ForeColor = color1;
-            repositoryItemButtonEdit2.Appearance.ForeColor = color2;
-            repositoryItemButtonEdit3.Appearance.ForeColor = color3;
+            repositoryItemCheckedComboBoxEdit1.Appearance.ForeColor = color1;
+            repositoryItemCheckedComboBoxEdit2.Appearance.ForeColor = color2;
+            repositoryItemCheckedComboBoxEdit3.Appearance.ForeColor = color3;
 
             barStaticItem2.Appearance.ForeColor = color1;
             barStaticItem3.Appearance.ForeColor = color2;
@@ -71,17 +71,47 @@ namespace DXApplication1
             {
                 Application.DoEvents();
                 formLoaded = true;
+
+                LoadFromRegistry($@"{subkey}\FindAll1", Find1BarEditItem);
+                LoadFromRegistry($@"{subkey}\FindAll2", Find2BarEditItem);
+                LoadFromRegistry($@"{subkey}\FindAll3", Find3BarEditItem);
+
+
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(subkey))
                 {
                     if (key != null)
                     {
-                        Find1BarEditItem.EditValue = key.GetValue("FindAll1");
-                        Find2BarEditItem.EditValue = key.GetValue("FindAll2");
-                        Find3BarEditItem.EditValue = key.GetValue("FindAll3");
                         SetText(Convert.ToString(key.GetValue("Text")));
                     }
                 }
             }
+        }
+
+        private void LoadFromRegistry(string registryPath, BarEditItem barEditItem)
+        {
+            var comboBox = ((RepositoryItemCheckedComboBoxEdit)barEditItem.Edit);
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(registryPath))
+            {
+                if (key != null)
+                {
+                    comboBox.Items.Clear();
+                    foreach (string subKeyName in key.GetSubKeyNames())
+                    {
+                        using (RegistryKey itemKey = key.OpenSubKey(subKeyName))
+                        {
+                            if (itemKey != null)
+                            {
+                                string itemValue = (string)itemKey.GetValue("Item", string.Empty);
+                                bool isChecked = (string)itemKey.GetValue("Checked", "False") == "True";
+
+                                if (!string.IsNullOrEmpty(itemValue))
+                                    comboBox.Items.Add(itemValue, isChecked);
+                            }
+                        }
+                    }
+                }
+            }
+            barEditItem.EditValue = comboBox.GetCheckedItems();
         }
         private void ResizeFormToScreenPercentage(double percentage)
         {
@@ -103,78 +133,96 @@ namespace DXApplication1
             FromMemoEdit.SuspendLayout();
             ToMemoEdit.SuspendLayout();
 
-            find1 = Convert.ToString(Find1BarEditItem.EditValue);
-            find2 = Convert.ToString(Find2BarEditItem.EditValue);
-            find3 = Convert.ToString(Find3BarEditItem.EditValue);
+            AddItemToRepository(Convert.ToString(Find1BarEditItem.EditValue), repositoryItemCheckedComboBoxEdit1);
+            AddItemToRepository(Convert.ToString(Find2BarEditItem.EditValue), repositoryItemCheckedComboBoxEdit2);
+            AddItemToRepository(Convert.ToString(Find3BarEditItem.EditValue), repositoryItemCheckedComboBoxEdit3);
 
             SaveReg();
 
-            var l = Convert.ToString(FromMemoEdit.EditValue).Split(Environment.NewLine.ToCharArray()).Where(f => !string.IsNullOrEmpty(f)).ToArray();
-            var filters = new List<string>();
+            var l = Convert.ToString(FromMemoEdit.EditValue)
+                .Split(Environment.NewLine.ToCharArray())
+                .Where(f => !string.IsNullOrEmpty(f))
+                .ToArray();
 
-            ToMemoEdit.Text = string.Empty;
-            FromMemoEdit.Select(0, 0);
+            find1 = GetSelectedFilters(repositoryItemCheckedComboBoxEdit1);
+            find2 = GetSelectedFilters(repositoryItemCheckedComboBoxEdit2);
+            find3 = GetSelectedFilters(repositoryItemCheckedComboBoxEdit3);
 
-            if (!string.IsNullOrEmpty(find1))
-                filters.Add(find1);
-            if (!string.IsNullOrEmpty(find2))
-                filters.Add(find2);
-            if (!string.IsNullOrEmpty(find3))
-                filters.Add(find3);
+            var filters = find1.Concat(find2).Concat(find3).ToList();
 
             if (filters.Count > 0)
-                l = l.Where(f => filters.Any(filter => f.ToUpper().Contains(filter.ToUpper()))).ToArray();
+                l = l.Where(f => filters.Any(filter => f.IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0)).ToArray();
 
-            if (!string.IsNullOrEmpty(find1))
-                barStaticItem2.Caption = $"{find1} ({l.Where(f => f.ToUpper().Contains(find1.ToUpper())).Count()} hits)";
-            else
-                barStaticItem2.Caption = string.Empty;
+            UpdateBarCaption(barStaticItem2, find1, l);
+            UpdateBarCaption(barStaticItem3, find2, l);
+            UpdateBarCaption(barStaticItem4, find3, l);
 
-            if (!string.IsNullOrEmpty(find2))
-                barStaticItem3.Caption = $"{find2} ({l.Where(f => f.ToUpper().Contains(find2.ToUpper())).Count()} hits)";
-            else
-                barStaticItem3.Caption = string.Empty;
-
-            if (!string.IsNullOrEmpty(find3))
-                barStaticItem4.Caption = $"{find3} ({l.Where(f => f.ToUpper().Contains(find3.ToUpper())).Count()} hits)";
-            else
-                barStaticItem4.Caption = string.Empty;
-
-            l = l.Distinct().ToArray();
-
-            if (Contains1BarCheckItem.Checked)
-            {
-                StringComparison comparisonType1 = StringComparison.OrdinalIgnoreCase;
-                l = l.Where(f => f.IndexOf(find1, comparisonType1) >= 0).ToArray();
-            }
-
-            if (Contains2BarCheckItem.Checked)
-            {
-                StringComparison comparisonType2 = StringComparison.OrdinalIgnoreCase;
-                l = l.Where(f => f.IndexOf(find2, comparisonType2) >= 0).ToArray();
-            }
-
-            if (Contains3BarCheckItem.Checked)
-            {
-                StringComparison comparisonType3 = StringComparison.OrdinalIgnoreCase;
-                l = l.Where(f => f.IndexOf(find3, comparisonType3) >= 0).ToArray();
-            }
+            l = FilterListByCheckItem(l, Contains1BarCheckItem, find1);
+            l = FilterListByCheckItem(l, Contains2BarCheckItem, find2);
+            l = FilterListByCheckItem(l, Contains3BarCheckItem, find3);
 
             FromMemoEdit.ResumeLayout();
             ToMemoEdit.ResumeLayout();
-            ToMemoEdit.Text = string.Join(Environment.NewLine, l);
+            ToMemoEdit.Text = string.Join("\n", l.Distinct());
             FromMemoEdit.Text = FromMemoEdit.Text;
 
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm(false);
         }
+
+        private void AddItemToRepository(string filter, RepositoryItemCheckedComboBoxEdit repository)
+        {
+            var list = filter.Split(',').Select(s=>s.Trim());
+            foreach (var item in list)
+            {
+                if (!string.IsNullOrEmpty(item) && !repository.Items.Contains(item))
+                    repository.Items.Add(item,true);
+
+            }
+        }
+
+        private List<string> GetSelectedFilters(RepositoryItemCheckedComboBoxEdit repository)
+        {
+            return repository.Items
+                .Where(f => f.CheckState == CheckState.Checked)
+                .Select(s => (string)s.Value)
+                .ToList();
+        }
+
+        private void UpdateBarCaption(BarStaticItem barItem, List<string> findTerms, string[] lines)
+        {
+            if (findTerms != null && findTerms.Any())
+                barItem.Caption = string.Join(", ",
+                    findTerms.Select(term =>
+                        $"{term} ({lines.Count(f => f.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)} hits)"));
+            else
+                barItem.Caption = string.Empty;
+        }
+        private string[] FilterListByCheckItem(string[] list, BarCheckItem checkItem, List<string> terms)
+        {
+            if (checkItem.Checked && terms != null && terms.Any())
+                return list.Where(f => terms.Any(term => f.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)).ToArray();
+            return list;
+        }
+
         private void ToMemoEdit_CustomHighlightText(object sender, DevExpress.XtraEditors.TextEditCustomHighlightTextEventArgs e)
         {
-            if (find1 != null)
-                e.HighlightWords(find1, color1);
-            if (find2 != null)
-                e.HighlightWords(find2, color2);
-            if (find3 != null)
-                e.HighlightWords(find3, color3);
+            if (find1 != null && find1.Any())
+                foreach (var term in find1)
+                {
+                    e.HighlightWords(term, color1);
+                }
+
+            if (find2 != null && find2.Any())
+                foreach (var term in find2)
+                {
+                    e.HighlightWords(term, color2);
+                }
+
+            if (find3 != null && find3.Any())
+                foreach (var term in find3)
+                {
+                    e.HighlightWords(term, color3);
+                }
         }
         private void SetText(string text)
         {
@@ -224,16 +272,7 @@ namespace DXApplication1
             {
                 memoEdit.SelectionStart = startIndex;
                 memoEdit.SelectionLength = 1;
-                memoEdit.ScrollToCaret();
-                memoEdit.Focus();
-
-                int lineStart = memoEdit.Text.LastIndexOf(Environment.NewLine, startIndex) + 1;
-                int lineEnd = memoEdit.Text.IndexOf(Environment.NewLine, startIndex);
-                if (lineEnd < 0)
-                {
-                    lineEnd = memoEdit.Text.Length;
-                }
-                memoEdit.Select(lineStart, lineEnd - lineStart);
+                memoEdit.ScrollToCaret(); 
             }
 
             memoEdit.ResumeLayout();
@@ -272,14 +311,40 @@ namespace DXApplication1
         }
         private void SaveReg()
         {
+            SaveToRegistry($@"{subkey}\FindAll1", Find1BarEditItem);
+            SaveToRegistry($@"{subkey}\FindAll2", Find2BarEditItem);
+            SaveToRegistry($@"{subkey}\FindAll3", Find3BarEditItem);
+
             using (RegistryKey key = Registry.CurrentUser.CreateSubKey(subkey))
             {
-                key.SetValue("FindAll1", find1, RegistryValueKind.String);
-                key.SetValue("FindAll2", find2, RegistryValueKind.String);
-                key.SetValue("FindAll3", find3, RegistryValueKind.String);
                 key.SetValue("Text", Convert.ToString(FromMemoEdit.EditValue), RegistryValueKind.String);
             }
         }
+
+        private void SaveToRegistry(string registryPath, BarEditItem barEditItem)
+        {
+            var comboBox = ((RepositoryItemCheckedComboBoxEdit)barEditItem.Edit);
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(registryPath))
+            {
+                if (key != null)
+                {
+                    foreach (string subKeyName in key.GetSubKeyNames())
+                    {
+                        key.DeleteSubKeyTree(subKeyName);
+                    }
+                    for (int i = 0; i < comboBox.Items.Count; i++)
+                    {
+                        CheckedListBoxItem item = comboBox.Items[i];
+                        using (RegistryKey itemKey = key.CreateSubKey($"Item{i}"))
+                        {
+                            itemKey.SetValue("Item", item.Value.ToString());
+                            itemKey.SetValue("Checked", item.CheckState == CheckState.Checked ? "True" : "False");
+                        }
+                    }
+                }
+            }
+        }
+
         private void UndoBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             undoRedoManager.Undo(FromMemoEdit);
@@ -320,6 +385,15 @@ namespace DXApplication1
                 return index + searchText.Length;
             }
             return -1;
+        }
+
+        private void repositoryItemCheckedComboBoxEdit1_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                ((CheckedComboBoxEdit)sender).Clear();
+                ((CheckedComboBoxEdit)sender).Properties.Items.Clear();
+            }
         }
     }
 }

@@ -47,18 +47,15 @@
             this.Contains2BarCheckItem = new DevExpress.XtraBars.BarCheckItem();
             this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
             this.Find1BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
             this.Find2BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemCheckedComboBoxEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.barButtonGroup4 = new DevExpress.XtraBars.BarButtonGroup();
             this.Find3BarEditItem = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemCheckedComboBoxEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.standaloneBarDockControl3 = new DevExpress.XtraBars.StandaloneBarDockControl();
@@ -92,12 +89,9 @@
             this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -153,7 +147,7 @@
             this.ribbonControl.ItemsVertAlign = DevExpress.Utils.VertAlignment.Center;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonControl.MaxItemId = 67;
+            this.ribbonControl.MaxItemId = 68;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.OptionsAnimation.PageCategoryShowAnimation = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.OptionsExpandCollapseMenu.ShowRibbonGroup = DevExpress.Utils.DefaultBoolean.False;
@@ -163,12 +157,9 @@
             this.ribbonPage});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit2,
-            this.repositoryItemCheckEdit1,
-            this.repositoryItemCheckEdit2,
-            this.repositoryItemCheckEdit3,
-            this.repositoryItemButtonEdit1,
-            this.repositoryItemButtonEdit2,
-            this.repositoryItemButtonEdit3});
+            this.repositoryItemCheckedComboBoxEdit1,
+            this.repositoryItemCheckedComboBoxEdit2,
+            this.repositoryItemCheckedComboBoxEdit3});
             this.ribbonControl.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
             this.ribbonControl.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.None;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -287,19 +278,20 @@
             // 
             // Find1BarEditItem
             // 
-            this.Find1BarEditItem.Edit = this.repositoryItemButtonEdit1;
+            this.Find1BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit1;
             this.Find1BarEditItem.EditWidth = 400;
             this.Find1BarEditItem.Id = 63;
             this.Find1BarEditItem.Name = "Find1BarEditItem";
             // 
-            // repositoryItemButtonEdit1
+            // repositoryItemCheckedComboBoxEdit1
             // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
+            this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
+            this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
+            this.repositoryItemCheckedComboBoxEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.repositoryItemCheckedComboBoxEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemCheckedComboBoxEdit1_ButtonClick);
             // 
             // barButtonGroup3
             // 
@@ -313,19 +305,20 @@
             // 
             // Find2BarEditItem
             // 
-            this.Find2BarEditItem.Edit = this.repositoryItemButtonEdit2;
+            this.Find2BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit2;
             this.Find2BarEditItem.EditWidth = 400;
             this.Find2BarEditItem.Id = 64;
             this.Find2BarEditItem.Name = "Find2BarEditItem";
             // 
-            // repositoryItemButtonEdit2
+            // repositoryItemCheckedComboBoxEdit2
             // 
-            this.repositoryItemButtonEdit2.AutoHeight = false;
-            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
+            this.repositoryItemCheckedComboBoxEdit2.AutoHeight = false;
+            this.repositoryItemCheckedComboBoxEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
-            this.repositoryItemButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            this.repositoryItemCheckedComboBoxEdit2.Name = "repositoryItemCheckedComboBoxEdit2";
+            this.repositoryItemCheckedComboBoxEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.repositoryItemCheckedComboBoxEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemCheckedComboBoxEdit1_ButtonClick);
             // 
             // barButtonGroup4
             // 
@@ -339,19 +332,20 @@
             // 
             // Find3BarEditItem
             // 
-            this.Find3BarEditItem.Edit = this.repositoryItemButtonEdit3;
+            this.Find3BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit3;
             this.Find3BarEditItem.EditWidth = 400;
             this.Find3BarEditItem.Id = 65;
             this.Find3BarEditItem.Name = "Find3BarEditItem";
             // 
-            // repositoryItemButtonEdit3
+            // repositoryItemCheckedComboBoxEdit3
             // 
-            this.repositoryItemButtonEdit3.AutoHeight = false;
-            this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search),
+            this.repositoryItemCheckedComboBoxEdit3.AutoHeight = false;
+            this.repositoryItemCheckedComboBoxEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
-            this.repositoryItemButtonEdit3.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
+            this.repositoryItemCheckedComboBoxEdit3.Name = "repositoryItemCheckedComboBoxEdit3";
+            this.repositoryItemCheckedComboBoxEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.repositoryItemCheckedComboBoxEdit3.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemCheckedComboBoxEdit1_ButtonClick);
             // 
             // ribbonPage
             // 
@@ -370,23 +364,6 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroup1.Text = "Filter";
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Caption = "";
-            this.repositoryItemCheckEdit1.GlyphAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
-            // 
-            // repositoryItemCheckEdit2
-            // 
-            this.repositoryItemCheckEdit2.AutoHeight = false;
-            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
-            // 
-            // repositoryItemCheckEdit3
-            // 
-            this.repositoryItemCheckEdit3.AutoHeight = false;
-            this.repositoryItemCheckEdit3.Name = "repositoryItemCheckEdit3";
             // 
             // splitContainerControl1
             // 
@@ -766,12 +743,9 @@
             this.Activated += new System.EventHandler(this.Form1_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
@@ -818,9 +792,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem Clea2rBarButtonItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
         private DevExpress.XtraBars.BarButtonItem UpBarButtonItem2;
         private DevExpress.XtraBars.BarButtonItem Down2BarButtonItem;
         private DevExpress.XtraBars.BarCheckItem Contains1BarCheckItem;
@@ -851,10 +822,10 @@
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup3;
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup4;
         private DevExpress.XtraBars.BarEditItem Find1BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraBars.BarEditItem Find2BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
         private DevExpress.XtraBars.BarEditItem Find3BarEditItem;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit3;
     }
 }
