@@ -279,7 +279,7 @@
             // Find1BarEditItem
             // 
             this.Find1BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit1;
-            this.Find1BarEditItem.EditWidth = 400;
+            this.Find1BarEditItem.EditWidth = 600;
             this.Find1BarEditItem.Id = 63;
             this.Find1BarEditItem.Name = "Find1BarEditItem";
             // 
@@ -306,7 +306,7 @@
             // Find2BarEditItem
             // 
             this.Find2BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit2;
-            this.Find2BarEditItem.EditWidth = 400;
+            this.Find2BarEditItem.EditWidth = 600;
             this.Find2BarEditItem.Id = 64;
             this.Find2BarEditItem.Name = "Find2BarEditItem";
             // 
@@ -333,7 +333,7 @@
             // Find3BarEditItem
             // 
             this.Find3BarEditItem.Edit = this.repositoryItemCheckedComboBoxEdit3;
-            this.Find3BarEditItem.EditWidth = 400;
+            this.Find3BarEditItem.EditWidth = 600;
             this.Find3BarEditItem.Id = 65;
             this.Find3BarEditItem.Name = "Find3BarEditItem";
             // 
